@@ -52,7 +52,6 @@ end
 ------------------------------------------------------------
 
 function love.draw()
-
     love.graphics.setColor(1, 1, 1)
 
     if textChoice == "default" then
@@ -64,24 +63,30 @@ function love.draw()
         You are standing in an open field west of a white house.
         There is a small mailbox here.]], 50, 150)
 
+        love.graphics.print(" Press 'n' to go north, 'w' west, 'e' east, 's' south. \n Press 'u' to go forward", 50, 600)
+
     elseif textChoice == "one" then
         love.graphics.draw(bg3, 0, 0)
         love.graphics.print("North of House\nYou see boarded windows.", 50, 150)
+        love.graphics.print(" Press 'n' to go north, 'w' west, 'e' east, 's' south. \n Press 'u' to go forward", 50, 600)
 
     elseif textChoice == "two" then
         love.graphics.draw(bg2 or bg, 0, 0)
         love.graphics.print("South of House\nThere is no door here.", 50, 150)
+        love.graphics.print(" Press 'n' to go north, 'w' west, 'e' east, 's' south. \n Press 'u' to go forward", 50, 600)
 
     elseif textChoice == "three" then
         love.graphics.draw(bg4, 0, 0)
         love.graphics.print("Behind House\nA forest path leads east.", 50, 150)
+        love.graphics.print(" Press 'n' to go north, 'w' west, 'e' east, 's' south. \n Press 'u' to go forward", 50, 600)
 
     elseif textChoice == "four" then
         love.graphics.draw(bg, 0, 0)
         love.graphics.print("West of House\nThere is a small mailbox here.", 50, 150)
+        love.graphics.print(" Press 'n' to go north, 'w' west, 'e' east, 's' south. \n Press 'u' to go forward", 50, 600)
     end
 
-    -- MESSAGE (from U key)
+  
     if message ~= "" then
         love.graphics.print(message, 50, 500)
     end
