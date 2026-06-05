@@ -7,8 +7,18 @@ function love.load()
 
     bg  = love.graphics.newImage("Image/BC one.png")
     bg2 = love.graphics.newImage("Image/BC one.png")
-    bg3 = love.graphics.newImage("Image/BC one.png")
+    bg3 = love.graphics.newImage("Image/TinyBunny1.jpg")
+    bg34 = love.graphics.newImage("Image/TinyBunny2.png")
+    bg35 = love.graphics.newImage("Image/A.png")
     bg4 = love.graphics.newImage("Image/BC TWO.png")
+
+    bg41 = love.graphics.newImage("Image/TinyBunny4.png")
+    bg42 = love.graphics.newImage("Image/TinyBunny5.png")
+
+    bg1 = love.graphics.newImage("Image/A.png")
+
+    CH = love.graphics.newImage("Image/CH.png")
+
 
     sounds = {}
         sounds.music = love.audio.newSource("sounds/atlasaudio-horror-ambience-512255.mp3", "stream")
@@ -44,7 +54,7 @@ function love.keypressed(key)
          elseif textChoice == "three" then
             message = "Do you want to go in? Press u again"
         else
-            message = "Nothing happens"
+            message = "Door is locked"
         end
     end
 end
@@ -55,7 +65,7 @@ function love.draw()
     love.graphics.setColor(1, 1, 1)
 
     if textChoice == "default" then
-        love.graphics.draw(bg, 0, 0)
+        love.graphics.draw(bg1, 40, 15, 0, 0.6, 0.6)
 
         love.graphics.print(
         [[ZORK 1: The Great Underground Empire
@@ -66,26 +76,29 @@ function love.draw()
         love.graphics.print(" Press 'n' to go north, 'w' west, 'e' east, 's' south. \n Press 'u' to go forward", 50, 600)
 
     elseif textChoice == "one" then
-        love.graphics.draw(bg3, 0, 0)
+        love.graphics.draw(bg3, 0, 0, 0, 0.81, 0.81)
+        love.graphics.draw(CH, 700, 330, 0, 0.4, 0.4)
         love.graphics.print("North of House\nYou see boarded windows.", 50, 150)
         love.graphics.print(" Press 'n' to go north, 'w' west, 'e' east, 's' south. \n Press 'u' to go forward", 50, 600)
 
     elseif textChoice == "two" then
-        love.graphics.draw(bg2 or bg, 0, 0)
+        love.graphics.draw(bg34, 0, 0, 0, 0.87, 0.87)
+        love.graphics.draw(CH, 500, 500, 0, 0.2, 0.2)
         love.graphics.print("South of House\nThere is no door here.", 50, 150)
         love.graphics.print(" Press 'n' to go north, 'w' west, 'e' east, 's' south. \n Press 'u' to go forward", 50, 600)
 
     elseif textChoice == "three" then
-        love.graphics.draw(bg4, 0, 0)
+        love.graphics.draw(bg42, 0, 0, 0, 3.3, 3.3)
+        love.graphics.draw(CH, 0, 70, 0, 0.6, 0.6)
         love.graphics.print("Behind House\nA forest path leads east.", 50, 150)
         love.graphics.print(" Press 'n' to go north, 'w' west, 'e' east, 's' south. \n Press 'u' to go forward", 50, 600)
 
     elseif textChoice == "four" then
-        love.graphics.draw(bg, 0, 0)
+        love.graphics.draw(bg41, 0, 0, 0, 3, 3)
+        love.graphics.draw(CH, 900, 70, 0, 0.6, 0.6)
         love.graphics.print("West of House\nThere is a small mailbox here.", 50, 150)
         love.graphics.print(" Press 'n' to go north, 'w' west, 'e' east, 's' south. \n Press 'u' to go forward", 50, 600)
     end
-
   
     if message ~= "" then
         love.graphics.print(message, 50, 500)
